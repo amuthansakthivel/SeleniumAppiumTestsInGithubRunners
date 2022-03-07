@@ -2,14 +2,9 @@ name: Run selenium and appium tests in github runner
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
     
   workflow_dispatch:
-
-env:
-  AWS_REGION: "us-west-2"
-  ECR_REPOSITORY: "clipboard-ui-automation"
-  IMAGE_TAG: "latest"
 
 jobs:
   build:
