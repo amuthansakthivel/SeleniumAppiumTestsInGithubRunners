@@ -13,7 +13,7 @@ env:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Start Selenoid server
         uses: n-ton4/selenoid-github-action@master
@@ -28,11 +28,6 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
 
-      - name: run tests
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-            api-level: 29
-            script: ./gradlew connectedCheck
       - name: Run the tests
         run: 
             mvn clean test -Pall     
