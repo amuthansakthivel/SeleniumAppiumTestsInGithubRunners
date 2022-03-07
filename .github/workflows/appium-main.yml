@@ -13,21 +13,19 @@ jobs:
       matrix:
         api-level: [25]  
         target: [default]
-        
     steps:
-    
-    - name: checkout project
-      uses: actions/checkout@v2
-    
-    
+    - uses: actions/checkout@v2
+    - name: Set up JDK 1.11
+      uses: actions/setup-java@v1
+      with:
+        java-version: 11
     - uses: actions/setup-node@v2
       with:
        node-version: '12'
     - run: |
-            npm install -g appium@v1.22
+            npm install -g appium@v1.20.2
             appium -v
             appium &>/dev/null &
-            
     - name: Run Appium Tests
       uses: reactivecircus/android-emulator-runner@v1
       with:
@@ -35,7 +33,4 @@ jobs:
         target: ${{ matrix.target }}
         arch: x86_64
         profile: Nexus 6
-    
-    - name: Run test
-      run: 
-        mvn clean test -Pall 
+        script: mvn clean test -Pall
