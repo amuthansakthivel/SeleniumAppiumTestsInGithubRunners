@@ -3,9 +3,9 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="/Users/amuthansakthivel/IdeaProjects/SeleniumAppiumTestsInGithubRunners">
         <classes>
-            <class name="com.web.GoogleSearchTest">
+            <class name="com.mobile.MobileAppTest">
                 <methods>
-                    <include name="testGoogleSearch"/>
+                    <include name="testAppLaunch"/>
                 </methods>
             </class>
         </classes>
