@@ -13,7 +13,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - name: Start Selenoid server
         uses: n-ton4/selenoid-github-action@master
@@ -24,10 +24,16 @@ jobs:
             args: -limit 10
             browsers: chrome
             last-versions: 1
-            
-      - name: Checkout Project
+
+      - name: checkout
         uses: actions/checkout@v2
-        
-      - name: Run the unit tests
+
+      - name: run tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+            api-level: 29
+            script: ./gradlew connectedCheck
+      - name: Run the tests
         run: 
-          mvn clean test -Pall
+            mvn clean test -Pall     
+          
