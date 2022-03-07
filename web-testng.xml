@@ -8,11 +8,6 @@
                     <include name="testGoogleSearch"/>
                 </methods>
             </class>
-            <class name="com.mobile.MobileAppTest">
-                <methods>
-                    <include name="testAppLaunch"/>
-                </methods>
-            </class>
         </classes>
     </test>
 </suite>
