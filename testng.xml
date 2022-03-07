@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="/Users/amuthansakthivel/IdeaProjects/SeleniumAppiumTestsInGithubRunners">
+        <classes>
+            <class name="com.mobile.MobileAppTest">
+            <methods>
+                <include name="testAppLaunch"/>
+            </methods>
+        </class>
+            <class name="com.web.GoogleSearchTest">
+                <methods>
+                    <include name="testGoogleSearch"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
