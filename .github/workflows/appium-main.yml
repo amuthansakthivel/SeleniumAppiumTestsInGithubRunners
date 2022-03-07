@@ -9,20 +9,28 @@ on:
 jobs:
   build:
     runs-on: macos-latest
+    strategy:
+      matrix:
+        api-level: [25]  
+        target: [default]
     steps:
-      - name: checkout
-        uses: actions/checkout@v2
-
-      - name: run tests
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 29
-          script: ./gradlew connectedCheck
-
-      - name: checkout
-        uses: actions/checkout@v2
-
-      - name: Run the tests
-        run: 
-            mvn clean test -Pall     
-          
+   
+    - uses: actions/checkout@v2
+    - name: checkout project
+    
+    - uses: actions/setup-node@v2
+      with:
+       node-version: '12'
+    - run: |
+            npm install -g appium@v1.22
+            appium -v
+            appium &>/dev/null &
+            
+    - name: Run Appium Tests
+      uses: reactivecircus/android-emulator-runner@v1
+      with:
+        api-level: ${{ matrix.api-level }}
+        target: ${{ matrix.target }}
+        arch: x86_64
+        profile: Nexus 6
+        script: mvn clean test -Pall
