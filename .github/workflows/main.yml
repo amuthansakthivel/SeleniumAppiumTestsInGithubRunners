@@ -2,14 +2,9 @@ name: Run selenium and appium tests in github runner
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
     
   workflow_dispatch:
-
-env:
-  AWS_REGION: "us-west-2"
-  ECR_REPOSITORY: "clipboard-ui-automation"
-  IMAGE_TAG: "latest"
 
 jobs:
   build:
@@ -24,10 +19,11 @@ jobs:
             args: -limit 10
             browsers: chrome
             last-versions: 1
-            
-      - name: Checkout Project
+
+      - name: checkout
         uses: actions/checkout@v2
-        
-      - name: Run the unit tests
+
+      - name: Run the tests
         run: 
-          mvn clean test -Pall
+            mvn clean test -Pall     
+          
