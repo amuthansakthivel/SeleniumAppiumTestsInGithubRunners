@@ -1,0 +1,29 @@
+name: Run selenium and appium tests in github runner
+
+on:
+  push:
+    branches: [ master ]
+    
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start Selenoid server
+        uses: n-ton4/selenoid-github-action@master
+        id: start-selenoid
+        continue-on-error: false
+        with:
+            version: 1.10.1
+            args: -limit 10
+            browsers: chrome
+            last-versions: 1
+
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: Run the tests
+        run: 
+            mvn clean test -Pweb
+          

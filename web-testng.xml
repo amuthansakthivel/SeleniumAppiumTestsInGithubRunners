@@ -5,6 +5,7 @@
         <classes>
             <class name="com.web.GoogleSearchTest">
                 <methods>
+                    <include name="testGoogleSearchUsingSelenoid"/>
                     <include name="testGoogleSearch"/>
                 </methods>
             </class>
