@@ -18,6 +18,7 @@ public class MobileAppTest {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, Platform.ANDROID);
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UIAutomator2");
+        capabilities.setCapability("uiautomator2ServerInstallTimeout", 60000);
         capabilities.setCapability(MobileCapabilityType.APP,System.getProperty("user.dir")+"/ApiDemos-debug.apk");
         AndroidDriver<AndroidElement> driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"),
                 capabilities);
