@@ -26,7 +26,7 @@ public class GoogleSearchTest {
     @SneakyThrows
     @Test
     public void testGoogleSearch() {
-        WebDriverManager.chromedriver().setup();
+        System.setProperty("webdriver.chrome.driver","/usr/local/Caskroom/chromedriver/98.0.4758.102");
         WebDriver driver = new ChromeDriver();
         driver.get("https://google.co.in");
     }
