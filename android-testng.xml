@@ -3,7 +3,11 @@
 <suite name="All Test Suite">
     <test verbose="2"  name="/Users/amuthansakthivel/IdeaProjects/SeleniumAppiumTestsInGithubRunners">
         <classes>
-            <class name="com.mobile.MobileAppTest"/>
+            <class name="com.mobile.MobileAppTest">
+                <methods>
+                    <include name="testAppLaunchAndroid"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>
