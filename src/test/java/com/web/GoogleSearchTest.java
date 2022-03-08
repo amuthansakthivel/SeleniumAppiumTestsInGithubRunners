@@ -22,12 +22,4 @@ public class GoogleSearchTest {
         WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capabilities);
         driver.get("https://google.co.in");
     }
-
-    @SneakyThrows
-    @Test
-    public void testGoogleSearch() {
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
-        driver.get("https://google.co.in");
-    }
 }
