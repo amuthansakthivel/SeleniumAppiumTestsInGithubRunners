@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import java.net.URL;
 
-public class MobileAppTest {
+public class AndroidTest {
 
     @SneakyThrows
     @Test
@@ -22,18 +22,11 @@ public class MobileAppTest {
         capabilities.setCapability(MobileCapabilityType.APP,System.getProperty("user.dir")+"/ApiDemos-debug.apk");
         AndroidDriver<AndroidElement> driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"),
                 capabilities);
+        driver.findElementByAccessibilityId("Views").click();
+        driver.findElementByAccessibilityId("WebView4").click();
     }
-    @SneakyThrows
-    @Test
-    public void testAppLaunchIOS() {
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, Platform.IOS);
-        capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCUITest");
-        capabilities.setCapability("isHeadless",true);
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPod touch (7th generation)");
-        capabilities.setCapability(MobileCapabilityType.APP,
-                System.getProperty("user.dir")+"/DailyCheck.zip");
-        AndroidDriver<AndroidElement> driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"),
-                capabilities);
-    }
+
+
+
+
 }
