@@ -2,7 +2,7 @@ name: Run selenium and appium tests in github runner
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
     
   workflow_dispatch:
 
