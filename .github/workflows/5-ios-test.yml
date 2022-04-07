@@ -2,11 +2,11 @@ name: Run appium iOS test in Github Runner
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   workflow_dispatch:
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: macos-10.15
     steps:
       - uses: actions/checkout@v2
 
