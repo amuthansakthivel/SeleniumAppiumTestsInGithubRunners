@@ -1,0 +1,35 @@
+name: Provide inputs to workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      mavenProfile:
+        description: 'web or android or ios or unit-test'
+        required: true
+        default: 'web'
+      remoteURL:
+        description: 'selenoid url if hosted outside'
+        required: true
+        default: 'http://localhost:4444/wd/hub'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start Selenoid server
+        uses: n-ton4/selenoid-github-action@master
+        id: start-selenoid
+        continue-on-error: false
+        with:
+            version: 1.10.1
+            args: -limit 10
+            browsers: chrome
+            last-versions: 1
+
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: Run the tests
+        run: 
+            mvn clean test -P${{ github.event.inputs.mavenProfile }} -DremoteURL=${{ github.event.inputs.remoteURL }}
+          
