@@ -22,8 +22,7 @@ public class AndroidTest {
         capabilities.setCapability(MobileCapabilityType.APP,System.getProperty("user.dir")+"/ApiDemos-debug.apk");
         AndroidDriver<AndroidElement> driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"),
                 capabilities);
-        driver.findElementByAccessibilityId("Views").click();
-        driver.findElementByAccessibilityId("WebView4").click();
+        driver.findElementByAccessibilityId("Animation").click();
     }
 
 
