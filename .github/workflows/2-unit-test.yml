@@ -1,4 +1,4 @@
-name: sonarqube
+name: unit-test
 on:
   push:
     branches:
