@@ -2,7 +2,7 @@ name: Run appium iOS test in Github Runner
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   workflow_dispatch:
 jobs:
   build:
