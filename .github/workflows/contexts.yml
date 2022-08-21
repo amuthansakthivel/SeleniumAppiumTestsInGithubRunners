@@ -26,7 +26,7 @@ jobs:
       - run: echo ${{ github.actor }}
       - run: echo 'Hi ${{ env.firstName }}'
       - run: echo 'website - ${{ env.website }}'
-      - run: echo ${{ jobs.status}}
+      - run: echo ${{ job.status}}
       - run: echo ${{ runner.os}}
       - run: echo ${{ secrets.PASSWORD }} ${{ env.firstName }}
         env:
