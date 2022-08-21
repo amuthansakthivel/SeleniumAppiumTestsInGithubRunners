@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       mavenProfile:
-        description: 'web or android or ios or unit-test'
+        description: 'maven profile - select your choice'
         options:
           - 'web'
           - 'android'
