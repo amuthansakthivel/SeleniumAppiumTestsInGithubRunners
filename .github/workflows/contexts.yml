@@ -1,0 +1,26 @@
+name : context demo
+
+on:
+  workflow_dispatch:
+    inputs:
+      text:
+        description: 'enter the word you want to print'
+        default: 'Hello'
+        required: true
+        type: string
+
+env:
+  firstName : 'Amuthan'
+  website   : 'testing mini bytes'
+
+jobs:
+  contexts-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ inputs.text }}
+      - run: echo ${{ github.event.inputs.text }}
+      - run: echo 'Hi ${{ env.firstName }}'
+      - run: echo 'website - ${{ env.website }}'
+      - run: echo ${{ secrets.password }}
+        env:
+          firstname : 'Testing'

@@ -18,10 +18,10 @@ on:
         required: true
         default: 'http://localhost:4444/wd/hub'
 
-
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Start Selenoid server
         uses: n-ton4/selenoid-github-action@master
@@ -37,6 +37,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run the tests
-        run: 
+        run:
             mvn clean test -P${{ inputs.mavenProfile }} -DremoteURL=${{ inputs.remoteURL }}
           
