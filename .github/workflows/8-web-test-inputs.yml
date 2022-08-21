@@ -38,5 +38,5 @@ jobs:
 
       - name: Run the tests
         run: 
-            mvn clean test -P${{ github.event.inputs.mavenProfile }} -DremoteURL=${{ github.event.inputs.remoteURL }}
+            mvn clean test -P${{ inputs.mavenProfile }} -DremoteURL=${{ inputs.remoteURL }}
           
