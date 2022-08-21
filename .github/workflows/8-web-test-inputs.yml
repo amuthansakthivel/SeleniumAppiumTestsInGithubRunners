@@ -5,12 +5,18 @@ on:
     inputs:
       mavenProfile:
         description: 'web or android or ios or unit-test'
+        options:
+          - 'web'
+          - 'android'
+          - 'ios'
+          - 'unit-test'
         required: true
         default: 'web'
       remoteURL:
         description: 'selenoid url if hosted outside'
         required: true
         default: 'http://localhost:4444/wd/hub'
+
 
 jobs:
   build:

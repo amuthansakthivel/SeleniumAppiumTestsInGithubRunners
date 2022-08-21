@@ -1,23 +1,36 @@
 name: unit-test
+
 on:
   push:
     branches:
       - main
+      - 'releases/**'
+
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [opened, synchronize]
+
+  issues:
+    types:
+      - opened
+      - labeled
+
   workflow_dispatch:
 
 jobs:
   build:
-    name: sonarqube
+    name: run-unit-test
+
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0
+
       - name: Set up JDK 11
         uses: actions/setup-java@v1
         with:
           java-version: 11
+
       - name: Run unit test
         run: mvn clean test -Punit-test

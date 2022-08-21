@@ -1,5 +1,5 @@
 name: Schedule web tests in Github runner
-
+#UTC
 on:
   schedule:
     - cron: '0 22 * * *'

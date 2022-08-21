@@ -21,5 +21,8 @@ public class WebTest {
         WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capabilities);
         driver.get("https://google.co.in");
         Assert.assertEquals(driver.getTitle(), "Google");
+        Thread.sleep(10000);
+        driver.quit();
     }
+
 }
