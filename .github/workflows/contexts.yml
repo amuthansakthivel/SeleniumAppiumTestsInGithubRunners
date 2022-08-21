@@ -21,6 +21,6 @@ jobs:
       - run: echo ${{ github.event.inputs.text }}
       - run: echo 'Hi ${{ env.firstName }}'
       - run: echo 'website - ${{ env.website }}'
-      - run: echo ${{ secrets.password }} ${{ env.firstName }}
+      - run: echo ${{ secrets.PASSWORD }} ${{ env.firstName }}
         env:
           firstName : 'Testing'
