@@ -15,12 +15,27 @@ env:
 
 jobs:
   contexts-demo:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+       os: [ubuntu-latest]
     steps:
+
       - run: echo ${{ inputs.text }}
       - run: echo ${{ github.event.inputs.text }}
+      - run: echo ${{ github.actor }}
       - run: echo 'Hi ${{ env.firstName }}'
       - run: echo 'website - ${{ env.website }}'
+      - run: echo ${{ jobs.status}}
+      - run: echo ${{ runner.os}}
       - run: echo ${{ secrets.PASSWORD }} ${{ env.firstName }}
         env:
           firstName : 'Testing'
+
+
+  contexts-demo-2:
+    needs: [contexts-demo]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'contexts-demo-2 running after contexts-demo'
+
