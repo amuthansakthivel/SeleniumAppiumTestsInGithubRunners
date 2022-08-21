@@ -12,6 +12,7 @@ on:
           - 'unit-test'
         required: true
         default: 'web'
+        type: choice
       remoteURL:
         description: 'selenoid url if hosted outside'
         required: true
