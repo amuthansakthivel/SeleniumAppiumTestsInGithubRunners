@@ -1,5 +1,4 @@
 name : context demo
-
 on:
   workflow_dispatch:
     inputs:
@@ -15,12 +14,15 @@ env:
 
 jobs:
   contexts-demo:
+    timeout-minutes: 5
+    continue-on-error: false
+    container:
+      image: alpine:latest
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
        os: [ubuntu-latest]
     steps:
-
       - run: echo ${{ inputs.text }}
       - run: echo ${{ github.event.inputs.text }}
       - run: echo ${{ github.actor }}
@@ -39,3 +41,12 @@ jobs:
     steps:
       - run: echo 'contexts-demo-2 running after contexts-demo'
 
+  job3:
+    runs-on: ubuntu-latest
+    if: ${{ always() }}
+    needs: [ contexts-demo ]
+
+  job4:
+    runs-on: ubuntu-latest
+    if: ${{ failure() }}
+    needs: [ contexts-demo ]
