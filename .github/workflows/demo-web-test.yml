@@ -29,4 +29,4 @@ jobs:
       - name: run the web tests
         run: |
             mvn -v
-            mvn clean test -Pweb -Dusername=${{ secrets.USERNAME }} -Dpassword=${{ secrets.PASSWORD }}
+            mvn clean install -Pweb -Dusername=${{ secrets.USERNAME }} -Dpassword=${{ secrets.PASSWORD }}
