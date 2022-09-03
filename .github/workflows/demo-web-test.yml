@@ -22,5 +22,6 @@ jobs:
 
       - name: run the web tests
         run: |
+            ls -al
             mvn -v
             mvn clean test -Pweb -Dusername=${{ secrets.USERNAME }} -Dpassword=${{ secrets.PASSWORD }}
