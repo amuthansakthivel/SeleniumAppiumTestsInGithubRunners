@@ -26,6 +26,9 @@ jobs:
           appium -v
           appium &>/dev/null &
 
+      - name: pull the project in to the runner
+        uses: actions/checkout@v3
+
       - name: run the tests
         run: |
           mvn clean test -Pandroid
