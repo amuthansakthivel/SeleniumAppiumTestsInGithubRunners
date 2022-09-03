@@ -19,13 +19,12 @@ public class WebTest {
     public void testGoogleSearchUsingSelenoid() {
         System.out.println("username :" + System.getProperty("username"));
         System.out.println("password :" + System.getProperty("password"));
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver= new ChromeDriver();
-       /* DesiredCapabilities capabilities = new DesiredCapabilities();
+
+        DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("browserName", "chrome");
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", false);
-        WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capabilities);*/
+        WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capabilities);
         driver.get("https://google.co.in");
         Assert.assertEquals(driver.getTitle(), "Google");
         Thread.sleep(10000);
