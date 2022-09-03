@@ -13,13 +13,6 @@ jobs:
           distribution: 'temurin'
           java-version: '11'
 
-      - name: set up node
-        continue-on-error: true
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: 'npm'
-
       - name: set up appium
         run: |
           npm install -g appium@v1.22
