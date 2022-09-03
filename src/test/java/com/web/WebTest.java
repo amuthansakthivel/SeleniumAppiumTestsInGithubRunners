@@ -15,7 +15,7 @@ import java.net.URL;
 public class WebTest {
 
     @SneakyThrows
-    @Test
+    @Test(groups = "web")
     public void testGoogleSearchUsingSelenoid() {
         System.out.println("username :" + System.getProperty("username"));
         System.out.println("password :" + System.getProperty("password"));
