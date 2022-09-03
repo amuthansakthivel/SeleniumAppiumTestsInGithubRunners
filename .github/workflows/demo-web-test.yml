@@ -27,4 +27,6 @@ jobs:
           last-versions: 1
 
       - name: run the web tests
-        run: mvn clean test -Pweb -Dusername=${{ secrets.USERNAME }} -Dpassword=${{ secrets.PASSWORD }}
+        run: |
+            mvn -v
+            mvn clean test -Pweb -Dusername=${{ secrets.USERNAME }} -Dpassword=${{ secrets.PASSWORD }}
