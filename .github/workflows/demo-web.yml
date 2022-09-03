@@ -15,8 +15,8 @@ jobs:
           distribution: 'temurin'
           java-version: '11'
 
-      - name: cache docker image
-        uses: satackey/action-docker-layer-caching@v0.0.11
+      - name: store docker image cache
+        uses: satackey/action-docker-layer-caching@v0:0:11
         continue-on-error: true
 
       - name: Start Selenoid server
@@ -29,6 +29,18 @@ jobs:
           browsers: chrome
           last-versions: 1
 
+      - name: Restore Maven cache
+        uses: skjolber/maven-cache-github-action@v1
+        continue-on-error: true
+        with:
+          step: restore
+
       - name: run the web test
         run: |
           mvn clean test -Pweb -Dusername=${{secrets.USERNAME}}
+
+      - name: Save Maven cache
+        uses: skjolber/maven-cache-github-action@v1
+        continue-on-error: true
+        with:
+          step: save
