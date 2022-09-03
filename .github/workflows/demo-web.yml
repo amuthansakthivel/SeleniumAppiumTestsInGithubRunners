@@ -27,4 +27,4 @@ jobs:
 
       - name: run the web test
         run: |
-          mvn clean test -Pweb -Dusername=${{secrets.USERNAME}} -Dpassword=${{secrets.PASSWORD}}
+          mvn clean test -Pweb -Dusername=${{secrets.USERNAME}}
