@@ -24,8 +24,4 @@ public class AndroidTest {
                 capabilities);
         driver.findElementByAccessibilityId("Animation").click();
     }
-
-
-
-
 }
