@@ -20,8 +20,8 @@ public class IosTest {
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCUITest");
         capabilities.setCapability("isHeadless",true);
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPod touch (7th generation)");
-        capabilities.setCapability(MobileCapabilityType.APP,
-                System.getProperty("user.dir")+"/DailyCheck.zip");
+        //capabilities.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir")+"/DailyCheck.zip");
+        capabilities.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir")+"/TestApp-iphonesimulator.app");
         AndroidDriver<AndroidElement> driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"),
                 capabilities);
     }
