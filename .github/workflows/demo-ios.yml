@@ -23,4 +23,4 @@ jobs:
           appium &>/dev/null &
 
       - name: run appium ios tests
-        run: mvn clean install -Pios
+        run: mvn clean test -Pios
