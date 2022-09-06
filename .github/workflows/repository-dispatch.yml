@@ -16,5 +16,4 @@ jobs:
 
       - name: print trigger details
         run: |
-          echo ${{ github.event.client_payload.ref }}
-          echo ${{ github.event.client_payload.sha }}
+          echo ${{ github.event.client_payload.github }}
