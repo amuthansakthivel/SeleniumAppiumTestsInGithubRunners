@@ -7,7 +7,7 @@ on:
 jobs:
   test-workflow:
     runs-on: ubuntu-latest
-    if: ${{ !github.event.issue.pull_request && github.event.issue.number == 2 && contains(github.event.comment.body, 'development')}}
+    if: ${{ !github.event.issue.pull_request && github.event.issue.number == 2 && endsWith(github.event.comment.body, 'development')}}
     steps:
 
       - run: echo "${{ github.event.issue.number }}"
