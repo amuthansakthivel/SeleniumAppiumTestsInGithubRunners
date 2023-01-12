@@ -19,7 +19,7 @@ jobs:
         id: commit-hash
         with:
           stringToTruncate: "${{ github.event.comment.body }}"
-          maxLength: 11
+          maxLength: 40
 
       - run: echo ${{ steps.commit-hash.outputs.string }}
 
