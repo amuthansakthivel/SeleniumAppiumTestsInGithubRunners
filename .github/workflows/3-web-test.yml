@@ -10,6 +10,9 @@ on:
         description: 'client-payload'
         required: false
         default: '{}'
+      TEST_ENV:
+        description: 'client-payload'
+        required: false
 
 jobs:
   build:
