@@ -5,6 +5,11 @@ on:
     branches: [ main ]
     
   workflow_dispatch:
+    inputs:
+      client_payload:
+        description: 'client-payload'
+        required: false
+        default: '{}'
 
 jobs:
   build:
