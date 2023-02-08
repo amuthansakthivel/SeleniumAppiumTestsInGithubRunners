@@ -8,6 +8,8 @@ on:
         required: true
   repository_dispatch:
     types: [ my-event ]
+  issue_comment:
+    types: [ created ]  
 
 jobs:
   build:
