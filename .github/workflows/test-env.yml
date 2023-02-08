@@ -25,4 +25,4 @@ jobs:
           if_true: "${{ inputs.environment }}"
           if_false: "${{ github.event.client_payload.TEST_ENV }}"
       - name: Use conditional value
-        run: echo "${{ steps.condval.outputs.value }}"
+        run: echo "${{ steps.environment.outputs.value }}"
