@@ -1,0 +1,28 @@
+name: evaluate between repository and workflow dispatch
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'staging or development or prod-shadow'
+        required: false
+        type: choice
+        options:
+          - 'staging'
+          - 'development'
+          - 'prod-shadow'
+        default: 'staging'
+  repository_dispatch:
+    types: [ my-event ]
+jobs:
+  web-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: haya14busa/action-cond@v1
+        id: environment
+        with:
+          cond: ${{ github.event_name == 'workflow_dispatch' }}
+          if_true: "${{ inputs.environment }}"
+          if_false: "${{ github.event.client_payload.TEST_ENV }}"
+      - name: Use conditional value
+        run: echo "${{ steps.condval.outputs.value }}"
