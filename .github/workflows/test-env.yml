@@ -33,6 +33,6 @@ jobs:
           exit 1
         
       - name: Report Status
-        if: ${{ github.event_name == 'workflow_dispatch' && steps.result.outcome == 'success' || steps.result.outcome == 'failure' }}
+        if: ${{ github.event_name == 'workflow_dispatch' && failure() ||  success() }}
         run: |
           echo "${{ steps.result.outcome }}"
