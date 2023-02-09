@@ -26,3 +26,13 @@ jobs:
           if_false: "${{ github.event.client_payload.TEST_ENV }}"
       - name: Use conditional value
         run: echo "${{ steps.environment.outputs.value }}"
+        
+      - name: execute tests
+        id: result
+        run: |
+          exit 1
+        
+      - name: Report Status
+        if: ${{ github.event_name == 'workflow_dispatch' && steps.result.outcome == 'success' || steps.result.outcome == 'failure' }}
+        run: |
+          echo "${{ steps.result.outcome }}"
