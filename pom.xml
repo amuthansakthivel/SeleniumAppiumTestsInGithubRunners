@@ -15,7 +15,7 @@
         <testng.version>7.4.0</testng.version>
         <webdrivermanager.version>5.0.3</webdrivermanager.version>
         <selenium.version>3.141.59</selenium.version>
-        <lombok.version>1.18.22</lombok.version>
+        <lombok.version>1.18.26</lombok.version>
     </properties>
 
     <build>
