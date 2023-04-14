@@ -11,10 +11,11 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <appium.java.version>7.6.0</appium.java.version>
+        <testng.version>7.4.0</testng.version>
+        <webdrivermanager.version>5.3.2</webdrivermanager.version>
         <appium.java.version>8.3.0</appium.java.version>
         <testng.version>7.7.1</testng.version>
-        <webdrivermanager.version>5.0.3</webdrivermanager.version>
-        <selenium.version>3.141.59</selenium.version>
         <lombok.version>1.18.26</lombok.version>
     </properties>
 
