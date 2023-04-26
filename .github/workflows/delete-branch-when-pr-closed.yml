@@ -1,0 +1,14 @@
+name: delete the branch when PR is closed
+
+on: 
+  pull_request:
+   types: [ closed ] 
+
+jobs:
+  delete-branch-when-pr-closed:
+  runs-on: [ ubuntu-latest ] 
+  steps:
+    - name: delete branch
+      uses: SvanBoxel/delete-merged-branch@main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
