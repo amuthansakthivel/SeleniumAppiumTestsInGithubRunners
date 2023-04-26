@@ -6,7 +6,8 @@ on:
 
 jobs:
   delete-branch-when-pr-closed:
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest
+    if: ${{ github.base_ref == "main" }}
     steps:
       - name: delete branch
         uses: SvanBoxel/delete-merged-branch@main
