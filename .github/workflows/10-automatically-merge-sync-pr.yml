@@ -1,0 +1,15 @@
+name: automatically merge dependabot PR's
+on:
+  pull_request:
+    branches: [ development ]
+
+jobs:
+  auto-merge-sync-prs:
+    runs-on: ubuntu-latest
+    if: ${{ github.head_ref == 'main' }}
+    steps:
+    - name: merge-pull-request
+      uses: KeisukeYamashita/auto-pull-request-merge@v1
+      with:
+        intervalSeconds: 10
+        timeoutSeconds: 30
