@@ -13,3 +13,6 @@ jobs:
       with:
         intervalSeconds: 10
         timeoutSeconds: 30
+        labels: auto-sync-merge
+        token: ${{ secrets.GITHUB_TOKEN }}
+        checkStatus: true
