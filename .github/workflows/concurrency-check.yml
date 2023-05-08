@@ -3,10 +3,11 @@ on:
   workflow_dispatch:
   push: 
     branches: 
-      - master
+      - on-demand-release-web-*
   
 concurrency:
-  group: ${{ github.workflow }}  
+  group: ${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: true
   
 jobs:
   concurrency-check-job:
