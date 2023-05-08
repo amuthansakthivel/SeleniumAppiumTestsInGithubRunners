@@ -1,0 +1,16 @@
+name: concurrency check
+on: 
+  workflow_dispatch:
+  
+concurrency:
+  group: ${{ github.workflow }}  
+  
+jobs:
+  concurrency-check-job:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Sleep for 30 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '30s'
+        
