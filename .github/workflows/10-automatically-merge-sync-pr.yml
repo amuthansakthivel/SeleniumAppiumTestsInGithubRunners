@@ -7,7 +7,11 @@ jobs:
   auto-merge-sync-prs:
     runs-on: ubuntu-latest
     if: ${{ github.head_ref == 'main' }}
+    permissions:
+      pull-requests: write
     steps:
+    - name: auto-approve-pull-request
+      uses: hmarr/auto-approve-action@v3
     - name: merge-pull-request
       uses: KeisukeYamashita/auto-pull-request-merge@v1
       with:
