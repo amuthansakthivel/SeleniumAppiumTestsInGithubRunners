@@ -9,6 +9,8 @@ jobs:
   concurrency-check-job:
     runs-on: ubuntu-latest
     steps: 
+      - name: echo workflow name
+        run: echo '${{ github.workflow }}'
       - name: Sleep for 30 seconds
         uses: jakejarvis/wait-action@master
         with:
