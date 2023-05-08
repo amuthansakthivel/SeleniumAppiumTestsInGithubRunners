@@ -10,7 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - name: echo workflow name
-        run: echo '${{ github.workflow }}'
+        run: echo ${{ github.workflow }}
+      - run: echo ${{ github.ref_name }}
       - name: Sleep for 30 seconds
         uses: jakejarvis/wait-action@master
         with:
