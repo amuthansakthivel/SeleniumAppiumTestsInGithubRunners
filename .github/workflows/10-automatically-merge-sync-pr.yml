@@ -9,14 +9,16 @@ jobs:
     if: ${{ github.head_ref == 'main' }}
     permissions:
       pull-requests: write
+    steps:
+      - name: auto-approve-pull-request
+        uses: hmarr/auto-approve-action@v3
     
   auto-merge-sync-prs:
     runs-on: ubuntu-latest
     needs: approve-merge-sync-prs
     if: ${{ github.head_ref == 'main' }}
     steps:
-    - name: auto-approve-pull-request
-      uses: hmarr/auto-approve-action@v3
+   
     - name: merge-pull-request
       uses: KeisukeYamashita/auto-pull-request-merge@v1
       with:
