@@ -79,7 +79,7 @@
                         <plugin>
                             <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-surefire-plugin</artifactId>
-                            <version>3.0.0-M5</version>
+                            <version>3.1.2</version>
                             <configuration>
                                 <suiteXmlFiles>
                                     <suiteXmlFile>unit-test.xml</suiteXmlFile>
@@ -98,7 +98,7 @@
                         <plugin>
                             <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-surefire-plugin</artifactId>
-                            <version>3.0.0-M5</version>
+                            <version>3.1.2</version>
                             <configuration>
                                 <suiteXmlFiles>
                                     <suiteXmlFile>web-testng.xml</suiteXmlFile>
@@ -117,7 +117,7 @@
                         <plugin>
                             <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-surefire-plugin</artifactId>
-                            <version>3.0.0-M5</version>
+                            <version>3.1.2</version>
                             <configuration>
                                 <suiteXmlFiles>
                                     <suiteXmlFile>testng.xml</suiteXmlFile>
@@ -136,7 +136,7 @@
                         <plugin>
                             <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-surefire-plugin</artifactId>
-                            <version>3.0.0-M5</version>
+                            <version>3.1.2</version>
                             <configuration>
                                 <suiteXmlFiles>
                                     <suiteXmlFile>android-testng.xml</suiteXmlFile>
@@ -155,7 +155,7 @@
                         <plugin>
                             <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-surefire-plugin</artifactId>
-                            <version>3.0.0-M5</version>
+                            <version>3.1.2</version>
                             <configuration>
                                 <suiteXmlFiles>
                                     <suiteXmlFile>ios-testng.xml</suiteXmlFile>
