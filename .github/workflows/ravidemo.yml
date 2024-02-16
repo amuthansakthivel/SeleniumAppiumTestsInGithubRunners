@@ -1,0 +1,35 @@
+name : run web tests in git hub actions
+
+on: workflow_dispatch
+jobs:
+  run-web-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name : pull project into runner
+        uses : actions/checkout@v4
+
+      - name : setup java
+        uses : actions/setup-java@v4
+        with :
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name : setup selenoid container
+        uses : n-ton4/selenoid-github-action@master
+        id   : start-selenoid
+        continue-on-error : false
+        with :
+          version : 1.10.1
+          args : -limit 10
+          browsers : chrome
+          last-versions : 1
+
+      - name : run web tests
+        run  : mvn clean test -Pweb -Dusername=${{secrets.USERNAME}} -Dpassword=${{secrets.PASSWORD}}
+
+
+
+
+
+
