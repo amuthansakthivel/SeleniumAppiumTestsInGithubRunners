@@ -1,0 +1,29 @@
+name: testing
+
+on:
+  workflow_dispatch:
+
+jobs:
+  upload-download:
+    runs-on: ubuntu-latest
+    steps:
+      - name: write to file
+        run: |
+          echo "lt://APP10160561281718330996942542" > android.txt
+      - name: Upload android artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-app
+          path: android.txt
+
+      - name: Download android artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: android-app
+          path: android.txt
+
+      - name: Set android and ios app ids
+        id: set-app-url
+        run: |
+          echo $(cat android.txt)
+          echo "::set-output name=ANDROID_APP_ID::$(cat android.txt)"
