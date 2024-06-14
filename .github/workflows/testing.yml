@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  upload-download:
+  upload:
     runs-on: ubuntu-latest
     steps:
       - name: write to file
@@ -15,15 +15,17 @@ jobs:
         with:
           name: android-app
           path: android.txt
-
+      
+  download:
+    runs-on: ubuntu-latest
+    steps:
       - name: Download android artifacts
         uses: actions/download-artifact@v4
         with:
           name: android-app
-          path: android.txt
-
+          path: android.txt  
       - name: Set android and ios app ids
         id: set-app-url
         run: |
           echo $(cat android.txt)
-          echo "::set-output name=ANDROID_APP_ID::$(cat android.txt)"
+          echo "::set-output name=ANDROID_APP_ID::$(cat android.txt)"    
