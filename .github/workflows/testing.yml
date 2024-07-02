@@ -4,29 +4,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  upload:
+  comment:
     runs-on: ubuntu-latest
     steps:
-      - name: write to file
-        run: |
-          echo "lt://APP10160561281718330996942542" > android.txt
-      - name: Upload android artifacts
-        uses: actions/upload-artifact@v4
+      - uses: actions/github-script@v7
         with:
-          name: android-app
-          path: android.txt
-      
-  download:
-    runs-on: ubuntu-latest
-    needs: upload
-    steps:
-      - name: Download android artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: android-app
-          path: android.txt  
-      - name: Set android and ios app ids
-        id: set-app-url
-        run: |
-          echo $(cat android.txt)
-          echo "::set-output name=ANDROID_APP_ID::$(cat android.txt)"    
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '👋 Thanks for reporting!'
+            })
