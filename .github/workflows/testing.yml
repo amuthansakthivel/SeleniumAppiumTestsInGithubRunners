@@ -11,5 +11,5 @@ jobs:
     steps:
       - uses: mshick/add-pr-comment@v2
         with:
-          message: |
+          message-failure: |
             👋 Playwright tests failed - For more details on how to debug the failure, https://www.notion.so/Frontend-E2E-Test-Runbook-8ca22
