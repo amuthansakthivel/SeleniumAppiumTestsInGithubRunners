@@ -4,9 +4,14 @@ on:
   workflow_dispatch:
 
 jobs:
-  comment:
+  test:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     steps:
-      - run: |
-          curl -s -H "Authorization: token ${{ github.token }}" -X POST -d '{"body": "👋 Playwright tests failed "}' "https://api.github.com/repos/amuthansakthivel/SeleniumAppiumTestsInGithubRunners/issues/42/comments"
-       
+      - uses: mshick/add-pr-comment@v2
+        with:
+          message: |
+            **Hello**
+            🌏
+            !
