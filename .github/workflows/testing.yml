@@ -7,12 +7,6 @@ jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v7
-        with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: '👋 Thanks for reporting!'
-            })
+      - run: |
+          curl -s -H "Authorization: token ${{ github.token }}" -X POST -d '{"body": "Your Message to Comment"}' "https://api.github.com/repos/amuthansakthivel/SeleniumAppiumTestsInGithubRunners/issues/42/comments"
+       
