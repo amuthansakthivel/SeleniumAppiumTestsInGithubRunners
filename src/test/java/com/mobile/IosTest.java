@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import java.net.URL;
 
 public class IosTest {
-
+    //test
     @SneakyThrows
     @Test
     public void testAppLaunchIOS() {
